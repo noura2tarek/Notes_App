@@ -16,14 +16,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NoteCubit(),
+    return BlocProvider<NoteCubit>(
+      create: (context) => NoteCubit()..readDatabase(),
       child: MaterialApp(
         title: AppStrings.appTitle,
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.light,
         theme: lightTheme,
-        home: HomeScreen(),
+        home: const HomeScreen(),
       ),
     );
   }

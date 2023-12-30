@@ -51,6 +51,7 @@ class EditNoteScreen extends StatelessWidget {
             ],
           ),
           body: SingleChildScrollView(
+            physics: const NeverScrollableScrollPhysics(),
             child: Padding(
               padding: const EdgeInsets.all(15.0),
               child: Column(

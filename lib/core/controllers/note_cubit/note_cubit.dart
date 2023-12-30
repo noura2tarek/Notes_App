@@ -49,14 +49,26 @@ class NoteCubit extends Cubit<NoteState> {
 
   /*--------------------------  Read all Notes -----------------------------*/
   List<Note> notes = [];
-
   readDatabase() {
     sqlDB.readDB().then((value) {
+      notes = value;
       emit(NoteReadDataSuccessState());
     }).catchError((error) {
       emit(NoteReadDataErrorState());
     });
   }
+  /*--------------------------  Search Note -----------------------------*/
+  //ask here
+  List<Note> notesSearch = [];
+  searchInDatabase({required Note note}) {
+    sqlDB.readDB(where: "id = 2").then((value) {
+      notesSearch = value;
+      emit(NoteSearchDataSuccessState());
+    }).catchError((error) {
+      emit(NoteSearchDataErrorState());
+    });
+  }
+
 
   /*--------------------------  Delete Note -----------------------------*/
   deleteFromDatabase({required int id}) {

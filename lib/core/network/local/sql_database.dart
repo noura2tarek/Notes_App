@@ -59,9 +59,9 @@ class SqlDB {
   //CREATE done
   //SELECT to read data
   /*--------------------------  Read All Data (Notes)  -----------------------------*/
-  Future<List<Note>> readDB() async {
+  Future<List<Note>> readDB({String? where}) async {
     Database? mydb = await db;
-    List<Map<String, Object?>>? response = await mydb?.query(_dbTable);
+    List<Map<String, Object?>>? response = await mydb?.query(_dbTable, where: where);
     var list = response!.map((e) => Note.fromMap(e)).toList();
     return list;
   }

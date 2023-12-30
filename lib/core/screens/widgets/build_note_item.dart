@@ -28,8 +28,8 @@ Widget buildNoteItem({required Note note, required BuildContext context}) {
         "${note.title}",
         overflow: TextOverflow.ellipsis,
         style: const TextStyle(
-          fontSize: 22.0,
-          fontWeight: FontWeight.w500,
+          fontSize: 20.0,
+          fontWeight: FontWeight.w400,
         ),
       ),
       subtitle: Text(
@@ -40,9 +40,9 @@ Widget buildNoteItem({required Note note, required BuildContext context}) {
         onPressed: () async {
           NoteCubit.get(context).deleteFromDatabase(id: note.id!);
         },
-        icon: const Icon(
+        icon: Icon(
           Icons.delete_outlined,
-          color: Colors.redAccent,
+          color: Colors.red[300],
         ),
       ),
     ),

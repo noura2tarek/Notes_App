@@ -16,6 +16,9 @@ class NoteUpdateDataErrorState extends NoteState {}
 //select
 class NoteReadDataSuccessState extends NoteState {}
 class NoteReadDataErrorState extends NoteState {}
+//search data
+class NoteSearchDataSuccessState extends NoteState {}
+class NoteSearchDataErrorState extends NoteState {}
 //delete
 class NoteDeleteDataSuccessState extends NoteState {}
 class NoteDeleteDataErrorState extends NoteState {}

@@ -50,11 +50,11 @@ class AddNoteScreen extends StatelessWidget {
             ],
           ),
           body: SingleChildScrollView(
+            physics: const NeverScrollableScrollPhysics(),
             child: Padding(
               padding: const EdgeInsets.all(15.0),
               child: Column(
                 children: [
-
                   /*---------------------------  Title TextField  -------------------------------*/
                   TextField(
                     maxLines: 1,
@@ -62,13 +62,14 @@ class AddNoteScreen extends StatelessWidget {
                     controller: titleController,
                     decoration: const InputDecoration(
                       hintText: AppStrings.title,
+                      hintStyle: TextStyle(fontSize: 18.0),
                       border: InputBorder.none,
                     ),
                   ),
 
                   /*---------------------------  Content TextField  -------------------------------*/
                   TextField(
-                    maxLines: 25,
+                    maxLines: 20,
                     keyboardType: TextInputType.text,
                     controller: contentController,
                     decoration: const InputDecoration(
