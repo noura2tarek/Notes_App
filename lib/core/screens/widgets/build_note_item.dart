@@ -7,13 +7,12 @@ import '../modules/edit_note_screen.dart';
 
 SqlDB sqlDB = SqlDB();
 
-
 Widget buildNoteItem({required Note note, required BuildContext context}) {
   return Card(
     elevation: 3.0,
     clipBehavior: Clip.antiAliasWithSaveLayer,
     shape: const RoundedRectangleBorder(
-       borderRadius: BorderRadius.all(Radius.circular(15.0)),
+      borderRadius: BorderRadius.all(Radius.circular(15.0)),
     ),
     child: ListTile(
       onTap: () => Navigator.of(context).push(
@@ -23,7 +22,6 @@ Widget buildNoteItem({required Note note, required BuildContext context}) {
           ),
         ),
       ),
-
       title: Text(
         "${note.title}",
         overflow: TextOverflow.ellipsis,
@@ -48,4 +46,3 @@ Widget buildNoteItem({required Note note, required BuildContext context}) {
     ),
   );
 }
-

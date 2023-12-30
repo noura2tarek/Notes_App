@@ -5,9 +5,7 @@ import 'package:note_app/core/models/note_model.dart';
 import '../../managers/app_strings.dart';
 
 class EditNoteScreen extends StatelessWidget {
-  EditNoteScreen(
-      {Key? key, required this.note})
-      : super(key: key);
+  EditNoteScreen({Key? key, required this.note}) : super(key: key);
   final Note? note;
   final TextEditingController titleController = TextEditingController();
   final TextEditingController contentController = TextEditingController();
@@ -18,7 +16,7 @@ class EditNoteScreen extends StatelessWidget {
       listener: (context, state) {},
       builder: (context, state) {
         var cubit = NoteCubit.get(context);
-        if(note != null){
+        if (note != null) {
           titleController.text = note!.title ?? '';
           contentController.text = note!.content ?? '';
         }
@@ -56,7 +54,7 @@ class EditNoteScreen extends StatelessWidget {
               padding: const EdgeInsets.all(15.0),
               child: Column(
                 children: [
-                  if(state is NoteUpdateDataLoadingState)
+                  if (state is NoteUpdateDataLoadingState)
                     const LinearProgressIndicator(color: Colors.brown),
 
                   /*---------------------------  Title TextField  -------------------------------*/
