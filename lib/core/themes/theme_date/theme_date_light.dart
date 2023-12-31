@@ -17,6 +17,6 @@ ThemeData lightTheme = ThemeData(
     iconTheme: const IconThemeData(
       color: Colors.white,
     ),
-    titleTextStyle: const TextStyle(color: Colors.white),
+    titleTextStyle: const TextStyle(color: Colors.white, fontSize: 18.0),
   ),
 );

@@ -1,6 +1,7 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import '../../models/note_model.dart';
+import 'dart:developer';
 
 class SqlDB {
   final String _dbName = "notes.db";
@@ -43,7 +44,7 @@ class SqlDB {
      "title" TEXT,
      "content" TEXT NOT NULL
      )
-     ''').then((value) => print('Database and table created ============'));
+     ''').then((value) => log('Database and table created ============'));
     // the above statement creates table whose name is Notes in database.
     // To make another table execute another sql statement
   }
@@ -53,7 +54,7 @@ class SqlDB {
     //add a new column or drop column use on upgrade but first change the version of database
     //or delete all database and create it another time.
     await db.execute("ALTER TABLE $_dbTable ADD COLUMN color TEXT");
-    print('Database upgraded ============');
+    log('Database upgraded ============');
   }
 
   //CREATE done

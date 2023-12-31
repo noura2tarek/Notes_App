@@ -21,7 +21,6 @@ class AddNoteScreen extends StatelessWidget {
             backgroundColor: Colors.brown.shade400,
             title: const Text(
               AppStrings.addNote,
-              style: TextStyle(color: Colors.white),
             ),
             actions: [
               IconButton(

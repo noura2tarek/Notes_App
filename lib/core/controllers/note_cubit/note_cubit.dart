@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note_app/core/network/local/sql_database.dart';
 import '../../models/note_model.dart';
-
+import 'dart:developer';
 part 'note_state.dart';
 
 class NoteCubit extends Cubit<NoteState> {
@@ -27,7 +27,7 @@ class NoteCubit extends Cubit<NoteState> {
 /*--------------------------  Insert Note -----------------------------*/
   insertToDatabase({required Note note}) {
     sqlDB.insertToDB(note: note).then((value) {
-      print("row $value inserted successfully======");
+      log("row $value inserted successfully======");
       emit(NoteInsertDataSuccessState());
       readDatabase();
     }).catchError((error) {
@@ -41,7 +41,7 @@ class NoteCubit extends Cubit<NoteState> {
     sqlDB.updateDB(note: note).then((value) {
       if (value! > 0) {
         emit(NoteUpdateDataSuccessState());
-        print("updated successfully======");
+        log("updated successfully======");
         readDatabase();
       }
     }).catchError((error) {
@@ -65,9 +65,11 @@ class NoteCubit extends Cubit<NoteState> {
   //ask here
   List<Note> notesSearch = [];
 
-  searchInDatabase({required Note note}) {
-    sqlDB.readDB(where: "id = 2").then((value) {
-      notesSearch = value; // add list in a list
+  searchInDatabase({required String text}) {
+    sqlDB.readDB().then((value) {
+      log("length is ${value.length}");
+      notesSearch = value.where((element) => element.id == 2).toList();
+      //notesSearch = value; // add list in a list
       emit(NoteSearchDataSuccessState());
     }).catchError((error) {
       emit(NoteSearchDataErrorState());
@@ -80,7 +82,7 @@ class NoteCubit extends Cubit<NoteState> {
       //check if value of response is not zero to avoid errors, that means the function completed normally.
       if (value! > 0) {
         emit(NoteDeleteDataSuccessState());
-        print("row with id = $id deleted successfully======");
+        log("row with id = $id deleted successfully======");
         // Delete the element from the list notes if it fulfills the condition.
         notes.removeWhere((element) => element.id == id);
       }
@@ -93,7 +95,7 @@ class NoteCubit extends Cubit<NoteState> {
   // database deleted but the structure is still exist
   deleteDatabase() {
     sqlDB.deleteMyDatabase().then((value) {
-      print(" Database deleted successfully======");
+      log(" Database deleted successfully======");
       emit(NoteDeleteDatabaseSuccessState());
     }).catchError((error) {
       emit(NoteDeleteDatabaseErrorState());
