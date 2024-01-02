@@ -52,7 +52,8 @@ class SearchNoteScreen extends StatelessWidget {
                 return ListView.separated(
                   itemBuilder: (context, index) {
                     return buildNoteItem(
-                        note: list[index], context: context,
+                      note: list[index],
+                      context: context,
                     );
                   },
                   separatorBuilder: (context, index) => const SizedBox(
@@ -77,7 +78,9 @@ class SearchNoteScreen extends StatelessWidget {
                       Text(
                         "No matching notes",
                         style: TextStyle(
-                            color: Colors.brown, fontWeight: FontWeight.w500),
+                          color: Colors.brown,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ],
                   ),

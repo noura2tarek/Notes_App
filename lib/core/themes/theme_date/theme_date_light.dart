@@ -7,8 +7,7 @@ ThemeData lightTheme = ThemeData(
   floatingActionButtonTheme: FloatingActionButtonThemeData(
     elevation: 4.0,
     focusElevation: 3.0,
-    shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0)),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
     backgroundColor: Colors.brown.shade400,
     foregroundColor: Colors.white,
   ),
@@ -17,6 +16,9 @@ ThemeData lightTheme = ThemeData(
     iconTheme: const IconThemeData(
       color: Colors.white,
     ),
-    titleTextStyle: const TextStyle(color: Colors.white, fontSize: 18.0),
+    titleTextStyle: const TextStyle(
+      color: Colors.white,
+      fontSize: 19.0,
+    ),
   ),
 );

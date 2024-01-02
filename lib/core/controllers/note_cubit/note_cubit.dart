@@ -62,14 +62,12 @@ class NoteCubit extends Cubit<NoteState> {
   }
 
   /*--------------------------  Search Note -----------------------------*/
-  //ask here
   List<Note> notesSearch = [];
 
   searchInDatabase({required String text}) {
-    sqlDB.readDB().then((value) {
+    sqlDB.searchInDB(where: "content LIKE '%$text%'").then((value) {
       log("length is ${value.length}");
-      notesSearch = value.where((element) => element.id == 2).toList();
-      //notesSearch = value; // add list in a list
+      notesSearch = value; // add list in a list
       emit(NoteSearchDataSuccessState());
     }).catchError((error) {
       emit(NoteSearchDataErrorState());
