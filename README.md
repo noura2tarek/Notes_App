@@ -1,6 +1,9 @@
 # note_app
 
-A new Flutter project.
+Simple Notes App
+Add & Edit note
+Database: sq lite (local database)
+State Management: cubit 
 
 ## Getting Started
 
