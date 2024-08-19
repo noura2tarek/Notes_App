@@ -1,8 +1,8 @@
 # note_app
 
-Simple Notes App \n
-Add & Edit note \n
-Database: sq lite (local database) \n
+Simple Notes App.
+Add & Edit note.
+Database: sq lite (local database).
 State Management: cubit 
 
 ## Getting Started
